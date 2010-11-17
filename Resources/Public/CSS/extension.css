@@ -1,0 +1,252 @@
+.tx_tkaddress div.clearer{
+	clear: both;
+	display: block;
+	font-size: 1px;
+	height: 1px;
+	line-height: 1px;
+	margin-bottom: -1px;
+}
+.tx_tkaddress div.header{
+	background-color: #ff9900;
+	height: 20px;
+	margin-bottom: 8px;
+	overflow: hidden;
+	padding: 6px;
+	width: 98%;
+}
+.tx_tkaddress label{
+	display: block;
+	width: 160px;
+	float: left;
+	font-weight: bold;
+}
+.tx_tkaddress input{
+	width: 240px;
+	margin: 0 0 8px 0;
+	height: 15px;
+	padding: 0;
+	clear: both;
+}
+.tx_tkaddress form.search{
+	float: left;
+	height: 16px;
+	margin: 0;
+	width: 300px;
+}
+.tx_tkaddress input.search{
+	height: 16px;
+	float: left;
+	margin: 0;
+}
+.tx_tkaddress select{
+	width: 240px;
+	margin: 0 0 8px 0;
+	height: auto;
+	padding: 0;
+	clear: both;
+}
+.tx_tkaddress input.submit{
+	width: 240px;
+	margin: 0 0 8px 160px;
+	height: 24px;
+}
+.tx_tkaddress input.searchSubmit{
+	border: 0px none;
+	height: 18px;
+	width: 18px;
+}
+.tx_tkaddress table.addressTable{
+	width: 100%;
+}
+
+.tx_tkaddress table.addressTable td{
+	text-align: left;
+	padding: 3px 0 3px 2px;
+	font-size: 80%;
+	vertical-align: top;
+}
+
+.tx_tkaddress table.addressTable a{
+	color: #900;
+	font-weight: bold;
+}
+
+.tx_tkaddress table.addressTable th{
+	background-color: #f90;
+	border:1px solid #ccc;
+	font-weight: normal;
+	font-size: 10px;
+	height: 14px;
+	padding: 2px 2px 0 4px;
+}
+
+.tx_tkaddress table.addressTable th a{
+	background-color: transparent;
+	display: block;
+	height: 10px;
+	width: 10px;
+}
+
+.tx_tkaddress table.addressTable th a:hover{
+	text-decoration: none;
+}
+
+
+
+.tx_tkaddress table.addressTable .tableHeader{
+	float: left;
+}
+
+.tx_tkaddress .asc{
+	background: url(images/signSorting.png) no-repeat 0 0;
+	display: block;
+	float: right;
+	height: 10px;
+	width: 10px;
+}
+
+.tx_tkaddress .asc.active{
+	background: url(images/signSorting.png) no-repeat -10px 0;
+}
+
+.tx_tkaddress div.desc{
+	background: url(images/signSorting.png) no-repeat -20px 0;
+	display: block;
+	float: right;
+	height: 10px;
+	width: 10px;
+}
+
+.tx_tkaddress .desc.active{
+	background: url(images/signSorting.png) no-repeat -30px 0;
+}
+
+.tx_tkaddress tr.odd{
+	background-color: #ccc;
+}
+
+.tx_tkaddress tr.even{
+	background-color: #eee;
+}
+
+.tx_tkaddress div.button{
+    margin-top: 12px;
+}
+
+.tx_tkaddress a.button{
+    background: none repeat scroll 0 0 #F0F0F0;
+	border: 1px solid #666666;
+	color: #000000;
+	padding: 3px 16px;
+}
+input.f3-form-error {
+	background-color:#FF9F9F;
+	border: 1px #FF0000 solid;
+}
+
+/*Single*/
+.tx_tkaddress .singleRow{
+	border: 1px solid #ccc;
+	clear: both;
+	/*	height: auto;*/
+	/*	display: block;*/
+	overflow: auto;
+}
+
+.tx_tkaddress .singleRow.odd{
+	background-color: #ccc;
+}
+
+.tx_tkaddress .singleRow.even{
+	background-color: #eee;
+}
+
+.tx_tkaddress .singleLabel{	
+	background-color: #ff9900;
+	display: block;
+	float: left;
+	padding: 3px 6px;
+	width: 180px;
+}
+
+.tx_tkaddress .singleContent{
+	float: left;
+	padding: 3px 6px;
+}
+
+/*Edit*/
+.tx_tkaddress .signEdit{
+	float:left;
+	margin-left:1px;
+	margin-right:1px;
+    height: 16px;
+	width: 18px;
+}
+
+.tx_tkaddress .signEdit.single{
+	background: url(images/signsEdit.png) no-repeat 0 0;
+}
+.tx_tkaddress .signEdit.edit{
+	background: url(images/signsEdit.png) no-repeat -18px 0;
+}
+.tx_tkaddress .signEdit.delete{
+	background: url(images/signsEdit.png) no-repeat -36px 0;
+}
+
+/*Pager*/
+.tx_tkaddress div.pager{
+	float: right;
+	padding: 6px 8px 0 0;
+}
+
+.tx_tkaddress ul.pager li{
+	float: left;
+	list-style: none;
+}
+
+.tx_tkaddress ul.pager a{
+	font-weight: bold;
+	color: #800;
+	padding: 4px;
+}
+
+.tx_tkaddress ul.pager li.active a{
+	color: #f00;
+	font-size: 16px;
+}
+
+/***** Flash & error messages *****/
+ul.tx-extbase-flash-message {
+    margin: 0;
+}
+
+ul.tx-extbase-flash-message li,
+ul.tx-efempty-flash-message li {
+    border: 2px solid;
+    color: #005f00;
+    list-style: none;
+    margin-bottom: 12px;
+	margin-left: -18px;
+    padding: 4px 4px 4px 16px;
+	width: 480px;
+}
+ul.tx-extbase-flash-message.error li {
+    background: #ffe3e3;
+    border-color: #dd0000;
+    color: #880000;
+}
+ul.tx-extbase-flash-message li,
+ul.tx-extbase-flash-message.notice li {
+    background: #dfffdf;
+    border-color: #9fcf9f;
+    color: #005f00;
+}
+ul.tx-extbase-flash-message.warning li {
+    background: #ffebc1;
+    border-color: #fdbf3b;
+    color: #a6750c;
+}
+
+ul.tx-efempty-flash-message li{
+	background: #dfffdf;
+}

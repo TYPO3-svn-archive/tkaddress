@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the FE Address edit extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="name">Name</label>
+			<label index="gender">Gender</label>
+			<label index="gender_m">male</label>
+			<label index="gender_f">female</label>
+			<label index="firstName">First Name</label>
+			<label index="middleName">Middle Name</label>
+			<label index="lastName">Last Name</label>
+			<label index="birthday">Birthday</label>
+			<label index="title">Title</label>
+			<label index="email">Email</label>
+			<label index="phone">Phone</label>
+			<label index="mobile">Mobile</label>
+			<label index="www">WWW</label>
+			<label index="address">Address</label>
+			<label index="building">Building</label>
+			<label index="room">Room</label>
+			<label index="company">Company</label>
+			<label index="city">City</label>
+			<label index="zip">Zip</label>
+			<label index="region">Region</label>
+			<label index="country">Country</label>
+			<label index="image">Image</label>
+			<label index="deleteImage">delete Image</label>
+			<label index="fax">Fax</label>
+			<label index="description">Description</label>
+			<label index="addressgroup">Address Group</label>
+			<!--Links-->
+			<label index="link_new">Create new Address</label>
+<!--			<label index="link_list">Back to List</label>-->
+			<label index="link_create">Create Address</label>
+			<label index="link_single">Single View</label>
+			<label index="link_edit">edit</label>
+			<label index="link_delete">delete</label>
+			<label index="link_reallyDelete">really Delete</label>
+			<label index="link_backToList">back To List</label>
+			<label index="submit_create">Create Address</label>
+			<label index="submit_edit">edit Address</label>
+			<!--Messages-->
+			<label index="notice_notAdmin">Operation not allowed, you need admin Rights!</label>
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<label index="name">Name</label>
+			<label index="gender">Geschlecht</label>
+			<label index="gender_m">männlich</label>
+			<label index="gender_f">weiblich</label>
+			<label index="firstName">Vorname</label>
+			<label index="middleName">Mittlerer Name</label>
+			<label index="lastName">Nachname</label>
+			<label index="birthday">Geburtstag</label>
+			<label index="title">Titel</label>
+			<label index="email">Email</label>
+			<label index="phone">Telefon</label>
+			<label index="mobile">Handy</label>
+			<label index="www">WWW</label>
+			<label index="address">Adresse</label>
+			<label index="building">Gebäude</label>
+			<label index="room">Raum</label>
+			<label index="company">Firma</label>
+			<label index="city">Stadt</label>
+			<label index="zip">PLZ</label>
+			<label index="region">Region</label>
+			<label index="country">Land</label>
+			<label index="image">Bild</label>
+			<label index="deleteImage">Bild löschen</label>
+			<label index="fax">Fax</label>
+			<label index="description">Beschreibung</label>
+			<label index="addressgroup">Gruppe</label>
+			<!--Links-->
+			<label index="link_new">neue Adresse</label>
+<!--			<label index="link_list">zurück zur Liste</label>-->
+			<label index="link_create">Adresse erstellen</label>
+			<label index="link_single">Einzelansicht</label>
+			<label index="link_edit">Adresse ändern</label>
+			<label index="link_delete">Adresse löschen</label>
+			<label index="link_reallyDelete">wilklich löschen?</label>
+			<label index="link_backToList">zurück zur Liste</label>
+			<label index="submit_create">Adresse erstellen</label>
+			<label index="submit_edit">Adresse ändern</label>
+			<!--Messages-->
+			<label index="notice_notAdmin">Das ist nicht erlaubt, sie benötigen Administratorrechte!</label>
+		</languageKey>
+	</data>
+</T3locallang>

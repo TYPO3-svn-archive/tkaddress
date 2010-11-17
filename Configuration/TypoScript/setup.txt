@@ -1,0 +1,68 @@
+page.includeCSS.tx_tkaddress = {$plugin.tx_tkaddress.settings.cssFile}
+page.includeJS.tx_tkaddress = {$plugin.tx_tkaddress.settings.jsFile}
+
+plugin.tx_tkaddress{
+	settings {
+		pagerEnabled = 1
+		itemsPerPage = 2
+		searchEnabled = 1
+		defaultImage = {$plugin.tx_tkaddress.settings.defaultImage}
+		maxImages = 3
+		uploadPath = uploads/pics/
+	}
+	persistence {
+		classes{
+			Tx_Tkaddress_Domain_Model_Address{
+				mapping {
+					tableName = tt_address
+					columns {
+								addressgroup.foreignClass = Tx_Tkaddress_Domain_Model_AddressGroup
+							}
+				}
+			}
+			Tx_Tkaddress_Domain_Model_AddressGroup{
+				mapping {
+					tableName = tt_address_group
+				}
+			}
+		}
+	}
+	view {
+		templateRootPath = {$plugin.tx_tkaddress.view.templateRootPath}
+		partialRootPath = {$plugin.tx_tkaddress.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_tkaddress.view.layoutRootPath}
+	}
+}
+
+//Pager
+lib.extbasepager {
+   order = current,previous,items,next,jumpto
+
+   active {
+   }
+   item {
+       separator = <li class="separator">|</li>
+   }
+   more {
+       doNotDisplay = 1
+   }
+   first {
+       doNotDisplay = 1
+   }
+   last {
+       doNotDisplay = 1
+   }
+   previous {
+   }
+   next {
+		doNotDisplay = 1
+   }
+   jumpto {
+		doNotDisplay = 1
+   }
+   current {
+		doNotDisplay = 1
+       //value = {field:title} <span class="actPage">{field:activePage}</span> | {field:lastPage}
+       //value.insertData = 1
+   }
+} 

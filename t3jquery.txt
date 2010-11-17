@@ -1,0 +1,2 @@
+script=Resources/Public/JS/extension.js
+components=jQuery,noConflict,Core,Datepicker-DE,Datepicker-EN-GB,Easing,ToolsTooltip,ToolsTooltipDynamic

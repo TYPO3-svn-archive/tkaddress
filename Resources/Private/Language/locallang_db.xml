@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'tk_address'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="flexform_options_list">List</label>
+			<label index="flexform_options_list_fields">Fields for List View</label>
+			<label index="flexform_options_list_search_enable">Search enabled</label>
+			<label index="flexform_options_list_pager_enable">Pager enabled</label>
+			<label index="flexform_options_list_pager_items">Pager: Items per Page</label>
+			<label index="flexform_options_list_edit_enable">Edit enabled</label>
+			<label index="flexform_options_search">Search</label>
+			<label index="flexform_options_search_fields">search in Fields</label>
+			<label index="flexform_options_single">Single Fields</label>
+			<label index="flexform_options_single_fields">Fields in Single, Create and Edit</label>
+			<label index="flexform_options_admin">Admin</label>
+			<label index="flexform_options_admin_feuser">enable Admins</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="flexform_options_list">List</label>
+			<label index="flexform_options_list_fields">Felder für Liste</label>
+			<label index="flexform_options_list_search_enable">Suche ein</label>
+			<label index="flexform_options_list_pager_enable">Pager ein</label>
+			<label index="flexform_options_list_pager_items">Pager: Adressen pro Seite</label>
+			<label index="flexform_options_list_edit_enable">Ändern erlaubt</label>
+			<label index="flexform_options_search">Suche</label>
+			<label index="flexform_options_search_fields">Felder für die Suche</label>
+			<label index="flexform_options_single">erlaubte Felder</label>
+			<label index="flexform_options_single_fields">Felder für die Einzelansicht, Neu und Ändern</label>
+			<label index="flexform_options_admin">Admin</label>
+			<label index="flexform_options_admin_feuser">erlaube Admins</label>
+		</languageKey>
+	</data>
+</T3locallang>

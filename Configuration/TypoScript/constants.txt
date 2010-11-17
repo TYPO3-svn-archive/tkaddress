@@ -1,0 +1,23 @@
+plugin.tx_tkaddress {
+	settings{
+		# cat=plugin.tx_tkaddress/file; type=string; label=Path to CSS File (FE)
+		cssFile = EXT:tkaddress/Resources/Public/CSS/extension.css
+
+		# cat=plugin.tx_tkaddress/file; type=string; label=Path to JavaScript File (FE)
+		jsFile = EXT:tkaddress/Resources/Public/JS/extension.js
+
+		# cat=plugin.tx_tkaddress/file; type=string; label=Default Image (FE)
+		defaultImage = EXT:tkaddress/Resources/Public/Images/default.png
+	}
+	view {
+		 # cat=plugin.tx_tkaddress/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:tkaddress/Resources/Private/Templates/
+		 # cat=plugin.tx_tkaddress/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:tkaddress/Resources/Private/Partials/
+		 # cat=plugin.tx_tkaddress/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:tkaddress/Resources/Private/Layouts/
+	}
+	persistence {
+
+	}
+}
