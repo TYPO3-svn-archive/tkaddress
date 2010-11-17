@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "tkaddress".
 #
-# Auto generated 17-11-2010 17:52
+# Auto generated 17-11-2010 18:11
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -29,7 +29,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'modify_tables' => '',
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
-	'version' => '0.3.0',
+	'version' => '0.3.1',
 	'constraints' => array(
 		'depends' => array(
 			'tt_address' => '2.2.1-0.0.0',
