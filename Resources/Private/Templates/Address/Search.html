@@ -1,0 +1,67 @@
+{namespace tk=Tx_Tkaddress_ViewHelpers}
+<f:layout name="default" />
+<f:section name="content">
+	<div class="header">
+		<f:if condition="{settings.searchEnabled}">
+			<f:form method="post" action="search" name="search" class="search">
+				<f:form.textbox name="searchPhrase" value="{searchPhrase}" class="search" />
+				<input type="image" class="searchSubmit" src="typo3conf/ext/tkaddress/Resources/Public/CSS/images/submit.png" name="Suchen" />
+			</f:form>					
+		</f:if>
+	</div>
+	<table class="addressTable" cellspacing="0" cellpadding="0" summary="addresses">
+		<f:for each="{addresses}" as="address" key="addrNumber">
+			<f:if condition="{addrNumber} == 0">
+				<tr class="header">
+				<f:for each="{fields}" as="field">
+					<th>
+						<div class="tableHeader"><f:translate key="{field}" /></div>
+					</th>
+				</f:for>
+					<th>&nbsp;</th>
+				</tr>
+			</f:if>
+			<f:cycle as="row" values="{0: 'odd', 1: 'even'}">
+				<tr class="{row}">
+				<f:for each="{fields}" as="field">
+					<td>
+					<f:if condition="{tk:type(fieldName : '{field}')} == 0">
+						{address -> tk:property(propertyName: '{field}')}
+					</f:if>
+					<f:if condition="{tk:type(fieldName : '{field}')} == 1">
+						{tk:gender(gender: '{address.gender}')}
+					</f:if>
+					<f:if condition="{tk:type(fieldName : '{field}')} == 2">
+						{address.birthday -> f:format.date(format:'d.m.Y')}
+					</f:if>
+					<f:if condition="{tk:type(fieldName : '{field}')} == 3">
+						<div style="width: 80;">
+							<f:for each="{address.image}" as="image" key="imageNumber">							
+								<f:if condition="{imageNumber} == 0">
+									<f:if condition="{image}">
+										<f:then>
+											<f:image src="uploads/pics/{image}" alt="{address.name}"  title="{address.name}" width="80m" height="60m" />
+										</f:then>
+										<f:else>
+											<f:image src="{settings.defaultImage}" alt="no image"  title="no image" width="80m" height="60m" />
+										</f:else>
+									</f:if>
+								</f:if>		
+							</f:for>
+						</div>
+					</f:if>
+					<f:if condition="{tk:type(fieldName : '{field}')} == 4">
+						<f:for each="{address.addressgroup}" as="group">
+							{group.title}
+						</f:for>
+					</f:if>
+					</td>
+				</f:for>
+				<!--Admin-->				
+				<f:render partial="editLinks"  arguments="{address : address, isAdmin : isAdmin, page : page}" />
+				</tr>
+			</f:cycle>
+		</f:for>
+	</table>
+	<p><f:link.action action="list"><f:translate key="link_list" /></f:link.action></p>
+</f:section>
