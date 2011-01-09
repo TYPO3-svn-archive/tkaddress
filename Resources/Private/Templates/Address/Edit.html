@@ -1,6 +1,7 @@
 {namespace tk=Tx_Tkaddress_ViewHelpers}
 <f:layout name="default" />
 <f:section name="content">
+	<f:render partial="formErrors" arguments="{for: 'updatedAddress'}" />
 	<f:form method="post" action="update" name="updatedAddress" object="{address}" arguments="{address : address, page : page}"  enctype="multipart/form-data" >
 		<f:for each="{fields}" as="field">
 			<f:cycle as="row" values="{0: 'odd', 1: 'even'}">
@@ -18,7 +19,7 @@
 					</f:if>
 
 					<f:if condition="{tk:type(fieldName : '{field}')} == 3">
-						<f:for each="{address.image}" as="image" key="imageNumber">							
+						<f:for each="{address.image}" as="image" key="imageNumber">
 							<f:if condition="{imageNumber} == 0">
 								<f:then>
 									<f:if condition="{image}">
@@ -29,8 +30,8 @@
 								</f:then>
 								<f:else>
 									<div style="margin-left: 160px">
-									<f:image src="uploads/pics/{image}" alt="{address.name}"  title="{address.name}" width="95m" height="70m" />
-									<f:form.checkbox name="removeImage[{imageNumber}]" value="{imageNumber}" style="width: 12px;" />
+										<f:image src="uploads/pics/{image}" alt="{address.name}"  title="{address.name}" width="95m" height="70m" />
+										<f:form.checkbox name="removeImage[{imageNumber}]" value="{imageNumber}" style="width: 12px;" />
 									{f:translate(key : 'deleteImage')}<br>
 									</div>
 								</f:else>
@@ -39,12 +40,12 @@
 
 						<f:if condition="{newImages}">
 							<div style="margin-left: 160px">
-							<f:for each="{newImages}" as="newImage">
-								<div class="">
-									<f:form.upload name="newImage[]" />
-								</div>
-							</f:for>
-								</div>
+								<f:for each="{newImages}" as="newImage">
+									<div class="">
+										<f:form.upload name="newImage[]" />
+									</div>
+								</f:for>
+							</div>
 						</f:if>
 					</f:if>
 					<f:if condition="{tk:type(fieldName : '{field}')} == 4">
@@ -54,6 +55,12 @@
 				</div>
 			</f:cycle>
 		</f:for>
+		<label class="button">
+				<f:link.action action="list" arguments="{page : page}"  class="button">
+				   {f:translate(key : 'link_backToList')}
+				</f:link.action>
+		</label>
 		<f:form.submit class="submit" value="<f:translate key='submit_edit' />" />
 	</f:form>
+
 </f:section>

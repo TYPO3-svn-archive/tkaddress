@@ -54,6 +54,11 @@
 				</div>
 			</f:cycle>
 		</f:for>
+		<label class="button">
+				<f:link.action action="list" arguments="{page : page}"  class="button">
+				   {f:translate(key : 'link_backToList')}
+				</f:link.action>
+		</label>
 		<f:form.submit class="submit" value="<f:translate key='submit_create' />" />
 	</f:form>
 </f:section>

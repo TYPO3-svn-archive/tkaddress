@@ -1,5 +1,4 @@
 {namespace tk=Tx_Tkaddress_ViewHelpers}
-{namespace pager=Tx_ExtbasePager_ViewHelpers}
 <f:layout name="default" />
 <f:section name="content">
 	<div class="header">
@@ -9,14 +8,10 @@
 				<input type="image" class="searchSubmit" src="typo3conf/ext/tkaddress/Resources/Public/CSS/images/submit.png" name="Suchen" />
 			</f:form>					
 		</f:if>
-		<f:if condition="{settings.pagerEnabled}">
-			<div class="pager">
-				<pager:pager typoscript="lib.extbasepager" page="{page}" lastPage="{pageCount}" />
-			</div>
-		</f:if>
 	</div>
-	<table class="addressTable" cellspacing="0" cellpadding="0" summary="addresses">
-		<f:for each="{addresses}" as="address" key="addrNumber">
+	<table class="addressTable" cellspacing="0" cellpadding="0" summary="addresses">	
+		<f:widget.paginate objects="{addresses}"  as="paginatedAddresses" configuration="{pagerConfig}">
+			<f:for each="{paginatedAddresses}" as="address" key="addrNumber">
 			<f:if condition="{addrNumber} == 0">
 				<tr class="header">
 				<f:for each="{fields}" as="field">
@@ -88,6 +83,8 @@
 				</tr>
 			</f:cycle>
 		</f:for>
+		</f:widget.paginate>
+
 	</table>
 	<!--Admin-->
 	<f:if condition="{isAdmin}">

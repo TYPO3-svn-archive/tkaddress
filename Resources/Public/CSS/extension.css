@@ -15,15 +15,15 @@
 	width: 98%;
 }
 .tx_tkaddress label{
-	display: block;
-	width: 160px;
+	display: inline-block;
 	float: left;
 	font-weight: bold;
+	width: 160px;
 }
 .tx_tkaddress input{
 	width: 240px;
 	margin: 0 0 8px 0;
-	height: 15px;
+	height: auto;
 	padding: 0;
 	clear: both;
 }
@@ -46,9 +46,11 @@
 	clear: both;
 }
 .tx_tkaddress input.submit{
-	width: 240px;
-	margin: 0 0 8px 160px;
+	background: none repeat scroll 0 0 #F0F0F0;
+	border: 1px solid #666666;
+	margin: 0 0 8px 0;
 	height: 24px;
+	width: 240px;
 }
 .tx_tkaddress input.searchSubmit{
 	border: 0px none;
@@ -133,11 +135,16 @@
     margin-top: 12px;
 }
 
+.tx_tkaddress label.button{
+	display: inline-block;
+    margin-top: 6px;
+}
+
 .tx_tkaddress a.button{
     background: none repeat scroll 0 0 #F0F0F0;
 	border: 1px solid #666666;
 	color: #000000;
-	padding: 3px 16px;
+	padding: 4px 16px;
 }
 input.f3-form-error {
 	background-color:#FF9F9F;
@@ -194,25 +201,27 @@ input.f3-form-error {
 }
 
 /*Pager*/
-.tx_tkaddress div.pager{
-	float: right;
-	padding: 6px 8px 0 0;
+.tx_tkaddress ul.f3-widget-paginator{
+	float: left;
+	padding: 0;
 }
-
-.tx_tkaddress ul.pager li{
+.tx_tkaddress ul.f3-widget-paginator li{
 	float: left;
 	list-style: none;
 }
 
-.tx_tkaddress ul.pager a{
+.tx_tkaddress ul.f3-widget-paginator a{
 	font-weight: bold;
 	color: #800;
-	padding: 4px;
+	padding: 4px
 }
 
-.tx_tkaddress ul.pager li.active a{
-	color: #f00;
-	font-size: 16px;
+.tx_tkaddress ul.f3-widget-paginator .next{
+	display: none;
+}
+
+.tx_tkaddress ul.f3-widget-paginator .previous{
+	display: none;
 }
 
 /***** Flash & error messages *****/

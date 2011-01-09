@@ -63,24 +63,22 @@ class Tx_Tkaddress_Controller_AddressController extends Tx_Extbase_MVC_Controlle
 	 * address list
 	 * @param string $type
 	 * @param string $direction
-	 * @param int $page 
 	 */
-	public function listAction($type = 'name', $direction = 0, $page = 1) {
+	public function listAction($type = 'name', $direction = 0) {
 		//get data
-		$addresses = '';
-		if ($this->settings['pagerEnabled'] == 1) {
-			$pageCount = 0;
-			$addresses = $this->addressRepository->SortByPager($type, $direction, $page, $this->settings['itemsPerPage'], $pageCount);
-		} else {
-			$addresses = $this->addressRepository->sortBy($type, $direction);
-		}
+		$addresses = $this->addressRepository->sortBy($type, $direction);
+		$pagerConfig = array(
+			'itemsPerPage' => $this->settings['itemsPerPage'],
+			'insertAbove' => $this->settings['pagerEnabled'],
+			'insertBelow' => 0
+		);
+
 		$this->view->assign('addresses', $addresses);
 		$fields = explode(',', $this->settings['list']['fields']);
 		$this->view->assign('fields', $fields);
 		$this->view->assign('type', $type);
 		$this->view->assign('direction', $direction);
-		$this->view->assign('page', $page);
-		$this->view->assign('pageCount', $pageCount);
+		$this->view->assign('pagerConfig', $pagerConfig);
 		$this->view->assign('isAdmin', $this->isAdmin);
 	}
 
@@ -170,7 +168,7 @@ class Tx_Tkaddress_Controller_AddressController extends Tx_Extbase_MVC_Controlle
 		} else {
 			$this->flashMessageContainer->add(Tx_Extbase_Utility_Localization::translate('notice_notAdmin', $this->extensionName));
 		}
-		$this->redirect('list', 'Address', NULL, array('page' => $page));
+//		$this->redirect('list', 'Address', NULL, array('page' => $page));
 	}
 
 	/**
@@ -228,8 +226,6 @@ class Tx_Tkaddress_Controller_AddressController extends Tx_Extbase_MVC_Controlle
 			}
 			$updatedAddress->setImage(implode(',', $images));
 
-
-
 			//set Images
 			if ($_FILES) {
 				for ($i = 0; $i < count($_FILES['tx_tkaddress_pi1']['name']['newImage']); $i++) {
@@ -240,12 +236,16 @@ class Tx_Tkaddress_Controller_AddressController extends Tx_Extbase_MVC_Controlle
 					$file['size'] = $_FILES['tx_tkaddress_pi1']['size']['newImage'][$i];
 					if ($file['name']) {
 						$image = Tx_Tkaddress_Service_FileService::uploadFile($file['name'], $file['type'], $file['tmp_name'], $file['size'], $this->settings);
+						var_dump($image);
 						if ($image) {
 							$updatedAddress->addImage($image);
 						}
 					}
 				}
 			}
+
+			$error = new Tx_Extbase_MVC_Controller_ArgumentError('Wrong filesize!', 1284476850);
+			$this->argumentsMappingResults->addError($error, 'tkaddress');
 
 
 			$updatedAddress->setName();

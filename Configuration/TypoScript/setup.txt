@@ -1,14 +1,17 @@
-page.includeCSS.tx_tkaddress = {$plugin.tx_tkaddress.settings.cssFile}
-page.includeJS.tx_tkaddress = {$plugin.tx_tkaddress.settings.jsFile}
+page.includeCSS.tx_tkaddress = EXT:tkaddress/Resources/Public/CSS/extension.css
+page.includeJS.tx_tkaddress = EXT:tkaddress/Resources/Public/JS/extension.js
 
 plugin.tx_tkaddress{
 	settings {
 		pagerEnabled = 1
 		itemsPerPage = 2
 		searchEnabled = 1
-		defaultImage = {$plugin.tx_tkaddress.settings.defaultImage}
+		defaultImage = EXT:tkaddress/Resources/Public/Images/default.png
 		maxImages = 3
 		uploadPath = uploads/pics/
+		fileExtensions = jpg,gif,png
+		fileMime = image/jpeg,image/gif,image/png
+		fileSize = 1000000
 	}
 	persistence {
 		classes{
@@ -28,41 +31,5 @@ plugin.tx_tkaddress{
 		}
 	}
 	view {
-		templateRootPath = {$plugin.tx_tkaddress.view.templateRootPath}
-		partialRootPath = {$plugin.tx_tkaddress.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_tkaddress.view.layoutRootPath}
 	}
-}
-
-//Pager
-lib.extbasepager {
-   order = current,previous,items,next,jumpto
-
-   active {
-   }
-   item {
-       separator = <li class="separator">|</li>
-   }
-   more {
-       doNotDisplay = 1
-   }
-   first {
-       doNotDisplay = 1
-   }
-   last {
-       doNotDisplay = 1
-   }
-   previous {
-   }
-   next {
-		doNotDisplay = 1
-   }
-   jumpto {
-		doNotDisplay = 1
-   }
-   current {
-		doNotDisplay = 1
-       //value = {field:title} <span class="actPage">{field:activePage}</span> | {field:lastPage}
-       //value.insertData = 1
-   }
 } 

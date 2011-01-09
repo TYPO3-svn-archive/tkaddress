@@ -34,17 +34,23 @@
 class Tx_Tkaddress_Service_FileService {
 
 	public function uploadFile($name, $type, $temp, $size, $settings) {
-		$returnValue = 123;
+		$returnValue = "";
 
-		if($size > 0) {
-            $fileFunc = t3lib_div::makeInstance('t3lib_basicFileFunctions');
+		$extAllowed = self::extAllowed($name, $settings);
+		$mimeAllowed = self::mimeAllowed($type, $settings);
+		$sizeAllowed = self::sizeAllowed($size, $settings);
 
-            $name		  =	$fileFunc->cleanFileName($name);
-            $uploadPath       = $fileFunc->cleanDirectoryName(PATH_site . $settings['uploadPath']);
-            $uniqueFileName   = $fileFunc->getUniqueName($name, $uploadPath);
-            $fileStored       = move_uploaded_file($temp, $uniqueFileName);
+		if ($size > 0) {
+			$fileFunc = t3lib_div::makeInstance('t3lib_basicFileFunctions');
 
-			$returnValue = basename($uniqueFileName);
+
+			$name = $fileFunc->cleanFileName($name);
+			$uploadPath = $fileFunc->cleanDirectoryName(PATH_site . $settings['uploadPath']);
+			$uniqueFileName = $fileFunc->getUniqueName($name, $uploadPath);
+			$fileStored = move_uploaded_file($temp, $uniqueFileName);
+
+//			$returnValue = basename($uniqueFileName);
+			$returnValue = $sizeAllowed;
 		}
 
 		return $returnValue;
@@ -54,6 +60,30 @@ class Tx_Tkaddress_Service_FileService {
 		$fileFunc = t3lib_div::makeInstance('t3lib_basicFileFunctions');
 		$fileDeleted = unlink($fileFunc->cleanDirectoryName(PATH_site . $settings['uploadPath'] . $name));
 		return $fileDeleted;
+	}
+
+	protected function mimeAllowed($mime, $settings) {
+		if (!$settings['fileMime'])
+			return TRUE;   //all mimetypes allowed
+		$includelist = explode(",", $settings['fileMime']);
+		return ( (in_array($mime, $includelist) || in_array('*', $includelist)) );
+	}
+
+	protected function extAllowed($name, $settings) {
+		if (!$settings['fileExtensions'])
+			return TRUE;   //all mimetypes allowed
+		$includelist = explode(",", $settings['fileExtensions']);
+		$extension = '';
+		if ($extension = strstr($name, '.')) {
+			$extension = substr($extension, 1);
+			return ((in_array($extension, $includelist) || in_array('*', $includelist)));
+		} else {
+			return FALSE;
+		}
+	}
+
+	protected function sizeAllowed($size, $settings) {
+		return $size < (int) $settings['fileSize'];
 	}
 
 }
